@@ -6,7 +6,7 @@ source <(curl -s https://raw.githubusercontent.com/FileEditor97/proxmox-stuff/ma
 # Source: https://github.com/moghtech/komodo
 
 APP="Periphery"
-var_tags="${var_tags:-monitoring;docker}"
+var_tags="${var_tags:-monitoring;container}"
 var_cpu="${var_cpu:-3}"
 var_ram="${var_ram:-4096}"
 var_disk="${var_disk:-12}"
