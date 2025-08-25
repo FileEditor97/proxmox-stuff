@@ -1,0 +1,43 @@
+# Copyright (c) 2021-2025 community-scripts ORG
+# Author: michelroegl-brunner
+# License: MIT | https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/LICENSE
+
+post_to_api() {
+
+  if ! command -v curl &>/dev/null; then
+    return
+  fi
+
+  if [ "$DIAGNOSTICS" = "no" ]; then
+    return
+  fi
+}
+
+post_to_api_vm() {
+
+  if [[ ! -f /usr/local/community-scripts/diagnostics ]]; then
+    return
+  fi
+  DIAGNOSTICS=$(grep -i "^DIAGNOSTICS=" /usr/local/community-scripts/diagnostics | awk -F'=' '{print $2}')
+  if ! command -v curl &>/dev/null; then
+    return
+  fi
+
+  if [ "$DIAGNOSTICS" = "no" ]; then
+    return
+  fi
+}
+
+POST_UPDATE_DONE=false
+post_update_to_api() {
+
+  if ! command -v curl &>/dev/null; then
+    return
+  fi
+
+  if [ "$POST_UPDATE_DONE" = true ]; then
+    return 0
+  fi
+
+  POST_UPDATE_DONE=true
+}
