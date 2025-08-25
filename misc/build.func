@@ -1029,9 +1029,9 @@ build_container() {
   TEMP_DIR=$(mktemp -d)
   pushd "$TEMP_DIR" >/dev/null
   if [ "$var_os" == "alpine" ]; then
-    export FUNCTIONS_FILE_PATH="/root/misc/alpine-install.sh"
+    export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/FileEditor97/proxmox-stuff/main/misc/alpine-install.func)"
   else
-    export FUNCTIONS_FILE_PATH="/root/misc/install.sh"
+    export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/FileEditor97/proxmox-stuff/main/misc/install.func)"
   fi
 
   export RANDOM_UUID="$RANDOM_UUID"
