@@ -6,10 +6,10 @@ source <(curl -s https://raw.githubusercontent.com/FileEditor97/proxmox-stuff/ma
 # Source: https://github.com/moghtech/komodo
 
 APP="Periphery"
-var_tags="${var_tags:-container;komodo;docker}"
-var_cpu="${var_cpu:-2}"
+var_tags="${var_tags:-monitoring;docker}"
+var_cpu="${var_cpu:-3}"
 var_ram="${var_ram:-4096}"
-var_disk="${var_disk:-8}"
+var_disk="${var_disk:-12}"
 var_os="${var_os:-debian}"
 var_version="${var_version:-12}"
 var_unprivileged="${var_unprivileged:-1}"
