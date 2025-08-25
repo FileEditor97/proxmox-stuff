@@ -1065,7 +1065,7 @@ build_container() {
     $PW
   "
   # This executes create_lxc.sh and creates the container and .conf file
-  bash -c "/root/misc/create_lxc.sh" $?
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/FileEditor97/proxmox-stuff/main/misc/create_lxc.sh)" $?
 
   LXC_CONFIG="/etc/pve/lxc/${CTID}.conf"
 
@@ -1258,7 +1258,7 @@ EOF'
   fi
   msg_ok "Customized LXC Container"
 
-  lxc-attach -n "$CTID" -- bash -s < /root/${var_install}.sh
+  lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/${var_install}.sh)"
 }
 
 # This function sets the description of the container.
